@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core' ;
+import {AuthService} from "../services/auth.service";
 
 
 @Component({
@@ -6,13 +7,21 @@ import { Component, OnInit } from '@angular/core' ;
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit  {
+ export class LoginComponent implements OnInit  {
 
 
-constructor () { }
+constructor (private  authService:  AuthService ) { }
 
 
   ngOnInit(): void  {
-  }
+   }
+
+    googleAuth () {
+   this.authService.googleAuth( );
+   }
+
+   facebookAuth () {
+      this.authService.facebookAuth ();
+    }
 
 }
